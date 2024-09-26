@@ -1,7 +1,6 @@
-package org.zero.ds2;
+package org.zero.ds2.utils;
 
 import java.util.function.BiFunction;
-import java.util.function.Function;
 
 public class FunctionStep implements BiFunction<Double, Integer,Double> {
     @Override

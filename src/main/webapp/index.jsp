@@ -18,7 +18,8 @@
         flex-direction: column;
     }
 </style>
-<form method="post" action="hello">
+<h2>Sum Calculator:</h2>
+<form method="post" action="sum">
     <label>
         Enter x:
         <input name="x" placeholder="Enter x" required>
@@ -34,5 +35,21 @@
     <button type="submit">Calculate</button>
 </form>
 
+<h2>Tabulation Calculator:</h2>
+<form method="post" action="tabulation">
+    <label>
+        Enter start:
+        <input name="start" placeholder="Enter start" required>
+    </label>
+    <label>
+        Enter finish:
+        <input name="finish" placeholder="Enter finish" required>
+    </label>
+    <label>
+        Enter step:
+        <input name="step" placeholder="Enter step" required>
+    </label>
+    <button type="submit">Calculate</button>
+</form>
 </body>
 </html>
