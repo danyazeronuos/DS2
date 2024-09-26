@@ -1,3 +1,6 @@
+<jsp:useBean id="step" scope="request" type="java.lang.Double"/>
+<jsp:useBean id="finish" scope="request" type="java.lang.Double"/>
+<jsp:useBean id="start" scope="request" type="java.lang.Double"/>
 <%@ page import="java.util.List" %>
 <%@ page import="org.zero.ds2.model.Result" %><%--
   Created by IntelliJ IDEA.
@@ -22,6 +25,18 @@
     }
 </style>
 
+<table>
+    <tr>
+        <th>Start</th>
+        <th>Finish</th>
+        <th>Step</th>
+    </tr>
+    <tr>
+        <td>${start}</td>
+        <td>${finish}</td>
+        <td>${step}</td>
+    </tr>
+</table>
 <table style="border: 1px solid black">
     <tr>
         <th>X</th>

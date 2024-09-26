@@ -20,6 +20,9 @@ public class TabulationServlet extends HttpServlet {
 
         var calculator = new TabulationService(start, finish, step);
 
+        req.setAttribute("start", start);
+        req.setAttribute("finish", finish);
+        req.setAttribute("step", step);
         req.setAttribute("result", calculator.calculate());
 
         req.getRequestDispatcher("/WEB-INF/tab.jsp").forward(req, res);

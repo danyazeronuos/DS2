@@ -11,6 +11,11 @@
         display: flex;
         flex-direction: column;
     }
+    body {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
     form {
         gap: 12px;
         display: flex;
@@ -18,8 +23,8 @@
         flex-direction: column;
     }
 </style>
-<h2>Sum Calculator:</h2>
 <form method="post" action="sum">
+<h2>Sum Calculator:</h2>
     <label>
         Enter x:
         <input name="x" placeholder="Enter x" required>
@@ -35,8 +40,8 @@
     <button type="submit">Calculate</button>
 </form>
 
-<h2>Tabulation Calculator:</h2>
 <form method="post" action="tabulation">
+<h2>Tabulation Calculator:</h2>
     <label>
         Enter start:
         <input name="start" placeholder="Enter start" required>

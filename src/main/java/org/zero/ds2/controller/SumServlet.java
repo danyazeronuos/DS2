@@ -20,6 +20,9 @@ public class SumServlet extends HttpServlet {
 
         var calculator = new SumService(x, iterations, e).calculate();
 
+        req.setAttribute("x", x);
+        req.setAttribute("e", e);
+        req.setAttribute("iterations", iterations);
         req.setAttribute("resultRight", calculator.getFirst());
         req.setAttribute("resultLeft", calculator.getSecond());
 
