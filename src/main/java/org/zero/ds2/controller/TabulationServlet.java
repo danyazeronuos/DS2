@@ -5,8 +5,10 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.zero.ds2.model.ResultModel;
 import org.zero.ds2.service.SumService;
 import org.zero.ds2.service.TabulationService;
+import org.zero.ds2.utils.CalculateStrategy;
 
 import java.io.IOException;
 
@@ -18,14 +20,17 @@ public class TabulationServlet extends HttpServlet {
         Double finish = Double.parseDouble(req.getParameter("finish"));
         Double step = Double.parseDouble(req.getParameter("step"));
 
-        var calculator = new TabulationService(start, finish, step);
+        var calculator = new CalculateStrategy(new TabulationService());
+        var calculatorResult = calculator.calculate(start, finish, step);
+        var resultModel = new ResultModel(
+                start,
+                finish,
+                step,
+                calculatorResult
+        );
+        req.setAttribute("result", resultModel);
 
-        req.setAttribute("start", start);
-        req.setAttribute("finish", finish);
-        req.setAttribute("step", step);
-        req.setAttribute("result", calculator.calculate());
-
-        req.getRequestDispatcher("/WEB-INF/tab.jsp").forward(req, res);
+        req.getRequestDispatcher("/WEB-INF/result.jsp").forward(req, res);
     }
 
 }

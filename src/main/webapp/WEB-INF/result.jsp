@@ -1,20 +1,14 @@
-<jsp:useBean id="step" scope="request" type="java.lang.Double"/>
-<jsp:useBean id="finish" scope="request" type="java.lang.Double"/>
-<jsp:useBean id="start" scope="request" type="java.lang.Double"/>
+<%@ page import="org.zero.ds2.model.ResultModel" %>
+<%@ page import="org.zero.ds2.model.Result" %>
 <%@ page import="java.util.List" %>
-<%@ page import="org.zero.ds2.model.Result" %><%--
-  Created by IntelliJ IDEA.
-  User: daniilmozzhukhin
-  Date: 26.09.2024
-  Time: 18:05
-  To change this template use File | Settings | File Templates.
---%>
+<jsp:useBean id="result" scope="request" type="org.zero.ds2.model.ResultModel"/>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>Title</title>
 </head>
 <body>
+
 <style>
     table, th, td {
         border: 1px solid black;
@@ -25,25 +19,27 @@
     }
 </style>
 
+<h2>Entered Data</h2>
 <table>
     <tr>
-        <th>Start</th>
-        <th>Finish</th>
-        <th>Step</th>
+        <th>A</th>
+        <th>B</th>
+        <th>C</th>
     </tr>
     <tr>
-        <td>${start}</td>
-        <td>${finish}</td>
-        <td>${step}</td>
+        <td>${result.a()}</td>
+        <td>${result.b()}</td>
+        <td>${result.c()}</td>
     </tr>
 </table>
+<h2>Calculate Result</h2>
 <table style="border: 1px solid black">
     <tr>
         <th>X</th>
         <th>Y</th>
     </tr>
     <%
-        List<Result> list = (List<Result>) request.getAttribute("result");
+        List<Result> list = ((ResultModel) request.getAttribute("result")).resultList();
         for (Result r : list) {
     %>
     <tr>
@@ -56,7 +52,5 @@
         }
     %>
 </table>
-
-
 </body>
 </html>
